@@ -10,6 +10,7 @@ requirejs.config({
 		"react": "react",
 		"react-dom": "react-dom",
         "JSXTransformer": "JSXTransformer",
+        "moment": "moment",
 		
         'app' : '../app'
     },
