@@ -16,3 +16,6 @@ form{
 .intervalCalc.disabled{
 	opacity: .4;
 }
+footer{
+	margin-top: 100px;	
+}
