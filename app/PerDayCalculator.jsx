@@ -10,7 +10,7 @@ define(['react', 'moment'], function(React, moment) {
 		},
 		componentDidUpdate: function(prevProps, prevState){
 			if(prevProps.micromorts != this.props.micromorts)
-				this.calculate(1);
+				this.calculate();
 		},
 		dateChange: function(){
 			var startDate = moment(this.refs.startDate.value.trim());
@@ -18,7 +18,7 @@ define(['react', 'moment'], function(React, moment) {
 			
 			var daysElapsed = endDate.diff(startDate,'days') + 1;
 			this.refs.days.value = daysElapsed;
-			this.calculate(daysElapsed);
+			this.calculate();
 		},
 		daysChange: function(){
 			var daysElapsed = this.refs.days.value.trim();
@@ -28,9 +28,10 @@ define(['react', 'moment'], function(React, moment) {
 			var newStartDate = endDate.subtract(daysElapsed - 1,'days');
 			
 			this.refs.startDate.value = newStartDate.format('YYYY-MM-DD');
-			this.calculate(daysElapsed);
+			this.calculate();
 		},
-		calculate : function(daysElapsed){
+		calculate : function(){
+			var daysElapsed = this.refs.days.value.trim();
 			var micromortsPerDay = this.props.micromorts / daysElapsed;
 			
 			this.setState({micromortsPerDay: micromortsPerDay});
