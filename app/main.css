@@ -10,6 +10,9 @@ input[type=date]::-webkit-outer-spin-button {
   margin: 0; 
 }
 
+form{
+	margin-top: 50px;
+}
 .intervalCalc.disabled{
 	opacity: .4;
 }

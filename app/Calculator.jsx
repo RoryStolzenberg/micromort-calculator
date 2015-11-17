@@ -36,9 +36,9 @@ define(['react', 'moment'], function(React, moment) {
 			var micromortsPerDayText = this.state.micromortsPerDay == null ? "[\xa0\xa0]" : this.state.micromortsPerDay.toFixed(2).replace(/(\d)(?=(\d{3})+\.\d\d$)/g,"$1,");
 			var today = moment().format('YYYY-MM-DD');
 			return (
-				<form className={" intervalCalc " + disabled} onChange={this.onChange}>
+				<form className={"row intervalCalc " + disabled} onChange={this.onChange}>
 					<h3 className="col-md-12">Micromorts per day</h3>
-					<div className="col-md-3">
+					<div className="col-md-2">
 						<h2 className="text-center">
 							{this.props.micromortText}
 							<small>&nbsp;&nbsp; micromorts</small>
@@ -71,7 +71,7 @@ define(['react', 'moment'], function(React, moment) {
 					<h2 className="col-md-1 text-center">
 						=
 					</h2>
-					<h2 className="col-md-2 text-center">
+					<h2 className="col-md-3 text-center">
 						{micromortsPerDayText}						
 						<small>&nbsp;&nbsp; micromorts/day</small>
 					</h2>
@@ -103,8 +103,8 @@ define(['react', 'moment'], function(React, moment) {
 		render: function() {
 			var micromortText = this.state.micromorts == null ? "[\xa0\xa0]" : this.state.micromorts.toFixed(2).replace(/(\d)(?=(\d{3})+\.\d\d$)/g,"$1,");
 			return (
-				<div className="row">
-					<form className="" onChange={this.onChange}>
+				<div>
+					<form className="row" onChange={this.onChange}>
 						<h3 className="col-md-12">Micromorts</h3>
 						<div className="col-md-2">
 								<div className="form-group">
@@ -115,14 +115,16 @@ define(['react', 'moment'], function(React, moment) {
 						<h2 className="col-md-1 text-center">
 							÷
 						</h2>
-						<div className="col-md-2">
-							<label htmlFor="population">People in jurisdiction</label>
-							<input ref="population" type="number" className="form-control" id="population" placeholder="Population"/>
-							<em className="checkbox text-right">
-								<label htmlFor="inMillions">
-									<input ref="inMillions" type="checkbox" className="" id="inMillions" defaultChecked/><small>(in millions)</small>
-								</label>
-							</em>
+						<div className="col-md-4 row">
+							<label className="col-md-12" htmlFor="population">People in jurisdiction</label>
+							<div className="col-md-7">
+								<input ref="population" type="number" className="form-control" id="population" placeholder="Population"/>
+								<em className="checkbox row text-right">
+									<label className="col-md-12" htmlFor="inMillions">
+										<input ref="inMillions" type="checkbox" className="" id="inMillions" defaultChecked/><small>(in millions)</small>
+									</label>
+								</em>
+							</div>
 						</div>
 						<h2 className="col-md-1 text-center">
 							=
